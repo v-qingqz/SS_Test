@@ -1,0 +1,39 @@
+{
+	"name": "Parquet2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedservicekun",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "u1460315494_5f29f3c4135d4f62adc30ba33e7dd7de_1.parquet",
+				"folderPath": "kun2",
+				"fileSystem": "kuncontainer"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "EntryTime",
+				"type": "INT96"
+			},
+			{
+				"name": "LicensePlate",
+				"type": "UTF8"
+			},
+			{
+				"name": "TollId",
+				"type": "UTF8"
+			},
+			{
+				"name": "RegistrationId",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

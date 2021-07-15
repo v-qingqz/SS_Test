@@ -1,0 +1,258 @@
+{
+	"name": "CopyPipeline_1128",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_u4u",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "hozhao//fact_sale.parquet"
+					},
+					{
+						"name": "Destination",
+						"value": "hozhao//CDT.json"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "ParquetSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "SaleKey",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['SaleKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "CityKey",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['CityKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "CustomerKey",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['CustomerKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "BillToCustomerKey",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['BillToCustomerKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "StockItemKey",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['StockItemKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "InvoiceDateKey",
+									"type": "DateTime"
+								},
+								"sink": {
+									"path": "$['InvoiceDateKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "DeliveryDateKey",
+									"type": "DateTime"
+								},
+								"sink": {
+									"path": "$['DeliveryDateKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "SalespersonKey",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['SalespersonKey']"
+								}
+							},
+							{
+								"source": {
+									"name": "WWIInvoicID",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['WWIInvoicID']"
+								}
+							},
+							{
+								"source": {
+									"name": "Description",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Description']"
+								}
+							},
+							{
+								"source": {
+									"name": "Package",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['Package']"
+								}
+							},
+							{
+								"source": {
+									"name": "Quantity",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['Quantity']"
+								}
+							},
+							{
+								"source": {
+									"name": "UnitPrice",
+									"type": "Double"
+								},
+								"sink": {
+									"path": "$['UnitPrice']"
+								}
+							},
+							{
+								"source": {
+									"name": "TaxRate",
+									"type": "Double"
+								},
+								"sink": {
+									"path": "$['TaxRate']"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalExcludingTax",
+									"type": "Double"
+								},
+								"sink": {
+									"path": "$['TotalExcludingTax']"
+								}
+							},
+							{
+								"source": {
+									"name": "TaxAmount",
+									"type": "Double"
+								},
+								"sink": {
+									"path": "$['TaxAmount']"
+								}
+							},
+							{
+								"source": {
+									"name": "Profit",
+									"type": "Double"
+								},
+								"sink": {
+									"path": "$['Profit']"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalIncludingTax",
+									"type": "Double"
+								},
+								"sink": {
+									"path": "$['TotalIncludingTax']"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalDryItems",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['TotalDryItems']"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalChillerItems",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['TotalChillerItems']"
+								}
+							},
+							{
+								"source": {
+									"name": "LineageKey",
+									"type": "Int32"
+								},
+								"sink": {
+									"path": "$['LineageKey']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_u4u",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_u4u",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2020-11-28T07:51:54Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "a365e2e",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://a365-e2e.vault.azure.net/"
+		}
+	}
+}

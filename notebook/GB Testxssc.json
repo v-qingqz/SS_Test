@@ -1,0 +1,139 @@
+{
+	"name": "GB Testxssc",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "medium",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 1,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "1",
+				"spark.dynamicAllocation.maxExecutors": "1"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3/resourceGroups/bigdataqa/providers/Microsoft.Synapse/workspaces/bigdata1128ws/bigDataPools/medium",
+				"name": "medium",
+				"type": "Spark",
+				"endpoint": "https://bigdata1128ws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/medium",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"Ⅻㄨㄩ 啊阿鼾齄丂丄狚狛狜狝﨨﨩ˊˋ˙–⿻〇㐀㐁㐃㐄䶴䶵U1[]U2[]U3[]"
+				],
+				"attachments": null,
+				"execution_count": 2
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"outputs_hidden": false,
+						"source_hidden": false
+					}
+				},
+				"source": [
+					"new_rows = [('Ⅻㄨㄩ',22, 45000),(\"啊阿鼾齄丂丄\",35,65000) ,(\"U1\",50,85000)]\n",
+					"demo_df = spark.createDataFrame(new_rows, ['state', 'age', 'salary'])\n",
+					"demo_df.show()"
+				],
+				"attachments": null,
+				"execution_count": 1
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"diagram": {
+						"activateDiagramType": 1,
+						"chartConfig": {
+							"category": "bar",
+							"keys": [
+								"_c0"
+							],
+							"values": [
+								"_c0"
+							],
+							"yLabel": "_c0",
+							"xLabel": "_c0",
+							"aggregation": "COUNT",
+							"aggByBackend": false
+						},
+						"aggData": "\"\\\"{\\\\\\\"_c0\\\\\\\":{\\\\\\\"①Ⅻㄨㄩ\\\\\\\":1}}\\\"\"",
+						"isSummary": false,
+						"previewData": {
+							"filter": {
+								"keyword": "丄狚狛狜狝",
+								"column": null
+							}
+						},
+						"isSql": false
+					}
+				},
+				"source": [
+					"%%pyspark\n",
+					"df = spark.read.load('abfss://hozhao@hozhao0924gen2.dfs.core.windows.net/GBTest.csv', format='csv')\n",
+					"display(df.limit(10))"
+				],
+				"attachments": null,
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "csharp"
+					}
+				},
+				"source": [
+					"%%csharp\n",
+					"DataFrame df = spark.Read().Csv(\"abfss://hozhao@hozhao0924gen2.dfs.core.windows.net/GBTest.csv\");\n",
+					"df.Show();"
+				],
+				"attachments": null,
+				"execution_count": null
+			}
+		]
+	}
+}
