@@ -1,0 +1,19 @@
+{
+	"name": "Kusto1129",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataExplorer",
+		"typeProperties": {
+			"endpoint": "https://kustodemo.westus2.kusto.windows.net",
+			"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+			"servicePrincipalId": "ac3a0e33-1db1-48ba-9b19-24ce0330ff5c",
+			"database": "cdndemo",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkJJR0RBVEExMTI4V1MyX2Q1YjI1NTYzLWM4OTUtNGI5My04NDllLWY1OWU1ZDgwMDcyNSINCn0="
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
