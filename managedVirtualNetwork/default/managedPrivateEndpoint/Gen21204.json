@@ -1,0 +1,10 @@
+{
+	"name": "Gen21204",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3/resourceGroups/bigdataqa/providers/Microsoft.Storage/storageAccounts/storagegen2qingtest",
+		"groupId": "dfs",
+		"fqdns": [
+			"storagegen2qingtest.dfs.core.windows.net"
+		]
+	}
+}

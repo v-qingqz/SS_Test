@@ -1,12 +1,12 @@
 {
-	"name": "AzureDataLakeStorage1117",
+	"name": "AzureDataLakeStorage1116",
 	"type": "Microsoft.Synapse/workspaces/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
 			"url": "https://storagegen2qingtest.dfs.core.windows.net",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkxUSUFOU0NVU1dPUktTUEFDRV8yNzhiZWNjYi04NWNkLTQ1Y2EtYmMyZi0wMDM3ZDI2Njc4OTAiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkxUSUFOU0NVU1dPUktTUEFDRV8zZTAxODI3OS01MTRjLTQ4ZGUtOWU5YS1jNzVlNjU1NTI1ZWUiDQp9"
 		},
 		"connectVia": {
 			"referenceName": "AutoResolveIntegrationRuntime",

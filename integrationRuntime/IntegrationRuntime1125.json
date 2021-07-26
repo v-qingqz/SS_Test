@@ -1,10 +1,10 @@
 {
-	"name": "AutoResolveIntegrationRuntime",
+	"name": "IntegrationRuntime1125",
 	"properties": {
 		"type": "Managed",
 		"typeProperties": {
 			"computeProperties": {
-				"location": "AutoResolve",
+				"location": "South Central US",
 				"dataFlowProperties": {
 					"computeType": "General",
 					"coreCount": 8,

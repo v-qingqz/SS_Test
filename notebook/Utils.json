@@ -1,0 +1,67 @@
+{
+	"name": "Utils",
+	"properties": {
+		"folder": {
+			"name": "weko"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "wekoOfficial",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "scala"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/ltiantestRG/providers/Microsoft.Synapse/workspaces/ltianscusworkspace/bigDataPools/wekoOfficial",
+				"name": "wekoOfficial",
+				"type": "Spark",
+				"endpoint": "https://ltianscusworkspace.dev.azuresynapse-dogfood.net/livyApi/versions/2019-11-01-preview/sparkPools/wekoOfficial",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"import java.lang.ClassLoader\r\n",
+					"\r\n",
+					"val cl = ClassLoader.getSystemClassLoader\r\n",
+					"cl.asInstanceOf[java.net.URLClassLoader].getURLs.foreach(println)"
+				],
+				"attachments": null,
+				"execution_count": 3
+			}
+		]
+	}
+}

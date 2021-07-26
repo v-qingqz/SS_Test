@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "CopyPipeline_zjx",
+					"referenceName": "Pipeline 1",
 					"type": "PipelineReference"
 				}
 			}
@@ -15,8 +15,8 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 5,
-				"startTime": "2020-12-16T05:52:00Z",
+				"interval": 15,
+				"startTime": "2020-11-22T05:44:00Z",
 				"timeZone": "UTC"
 			}
 		}

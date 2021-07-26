@@ -1,0 +1,7 @@
+{
+	"name": "SqlServer1",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/workspacemanagedrg-de7d31a2-7589-4c67-b293-303c8ace90c3/providers/Microsoft.Sql/servers/ltianscussynapse",
+		"groupId": "sqlServer"
+	}
+}

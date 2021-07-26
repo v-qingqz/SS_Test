@@ -1,0 +1,112 @@
+{
+	"name": "Notebook 8",
+	"properties": {
+		"folder": {
+			"name": "weko/temp test"
+		},
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "origin3",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 4,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "4",
+				"spark.dynamicAllocation.maxExecutors": "4"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/ltiantestRG/providers/Microsoft.Synapse/workspaces/ltianscusworkspace/bigDataPools/origin3",
+				"name": "origin3",
+				"type": "Spark",
+				"endpoint": "https://ltianscusworkspace.dev.azuresynapse-dogfood.net/livyApi/versions/2019-11-01-preview/sparkPools/origin3",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.0",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"%%configure -f\n",
+					"{\n",
+					"    \"conf\": {\n",
+					"        \"spark.executor.instances\": \"3\",\n",
+					"        \"spark.executor.cores\": \"1\",\n",
+					"        \"spark.t.e.s.t\": \"some-value\"\n",
+					"    },\n",
+					"    \"numExecutors\": \"3\",\n",
+					"    \"executorCores\": \"1\"\n",
+					"}"
+				],
+				"attachments": null,
+				"execution_count": 1
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"print(sc.getConf().get('spark.executor.cores'))\n",
+					"print(sc.getConf().get('spark.executor.instances'))\n",
+					"print(sc.getConf().get('spark.t.e.s.t'))"
+				],
+				"attachments": null,
+				"execution_count": 1
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"for i in sc.getConf().getAll():\n",
+					"    print(i)"
+				],
+				"attachments": null,
+				"execution_count": 2
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					""
+				],
+				"attachments": null,
+				"execution_count": null
+			}
+		]
+	}
+}

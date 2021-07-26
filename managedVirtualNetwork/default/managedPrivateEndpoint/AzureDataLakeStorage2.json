@@ -1,0 +1,7 @@
+{
+	"name": "AzureDataLakeStorage2",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/1bebf60d-8387-4809-8c15-62932373696a/resourceGroups/telemetry-prod-rg/providers/Microsoft.Storage/storageAccounts/devtooltelemetrygen23",
+		"groupId": "dfs"
+	}
+}

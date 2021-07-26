@@ -5,7 +5,7 @@
 		"annotations": [],
 		"type": "AzureKeyVault",
 		"typeProperties": {
-			"baseUrl": "https://A365-WestUS.vault.azure.net/"
+			"baseUrl": "https://a365-e2e.vault.azure.net/"
 		}
 	}
 }

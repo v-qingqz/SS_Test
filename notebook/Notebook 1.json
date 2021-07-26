@@ -4,14 +4,14 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "samll",
+			"referenceName": "spark",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "28g",
-			"driverCores": 4,
-			"executorMemory": "28g",
-			"executorCores": 4,
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
 			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
@@ -21,22 +21,29 @@
 		},
 		"metadata": {
 			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
 			"language_info": {
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3/resourceGroups/bigdataqa/providers/Microsoft.Synapse/workspaces/bigdata1128ws2/bigDataPools/samll",
-				"name": "samll",
+				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/ltiantestRG/providers/Microsoft.Synapse/workspaces/ltianscusworkspace/bigDataPools/spark",
+				"name": "spark",
 				"type": "Spark",
-				"endpoint": "https://bigdata1128ws2.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/samll",
+				"endpoint": "https://ltianscusworkspace.dev.azuresynapse-dogfood.net/livyApi/versions/2019-11-01-preview/sparkPools/spark",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
 				},
 				"sparkVersion": "2.4",
-				"nodeCount": 10,
-				"cores": 4,
-				"memory": 28,
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
 				"extraHeader": null
 			}
 		},
@@ -44,10 +51,543 @@
 			{
 				"cell_type": "code",
 				"source": [
-					"print(1+1)"
+					"import requests\n",
+					"\n",
+					"r = requests.get(\"http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text\", headers={\"Metadata\": \"true\"})\n",
+					"\n",
+					"for tag in r.text.split(';'):\n",
+					"    parts = tag.split(':')\n",
+					"    if parts[0] == 'cluster-name':\n",
+					"        print(parts[1])"
 				],
 				"attachments": null,
-				"execution_count": null
+				"execution_count": 51
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"import subprocess\r\n",
+					"process = subprocess.Popen(['/mnt/bin/mount.sh', 'mount -t cifs //ltianscusgen2.file.core.windows.net/gyytest /mnt/gyytest2 -o vers=3.0,username=ltianscusgen2,password=Ucfh1ECwlDcz9QRSY/ODB86JzE+u/z0ONo6sK0qjqEZ2/x1iyrPw3CVIuP3e+C8ZCbdZc+/pSvTYzqmxwtzZig==,serverino'],\r\n",
+					"                     stdout=subprocess.PIPE, \r\n",
+					"                     stderr=subprocess.PIPE)\r\n",
+					"stdout, stderr = process.communicate()"
+				],
+				"attachments": null,
+				"execution_count": 32
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"print(stderr)"
+				],
+				"attachments": null,
+				"execution_count": 35
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"import subprocess\r\n",
+					"process = subprocess.Popen(['/mnt/bin/mount.sh', \"umount /mnt/gyytest2\"],\r\n",
+					"                     stdout=subprocess.PIPE, \r\n",
+					"                     stderr=subprocess.PIPE)\r\n",
+					"stdout, stderr = process.communicate()"
+				],
+				"attachments": null,
+				"execution_count": 34
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"import subprocess\r\n",
+					"process = subprocess.Popen(['ls', \"/mnt/gyytest2\"],\r\n",
+					"                     stdout=subprocess.PIPE, \r\n",
+					"                     stderr=subprocess.PIPE)\r\n",
+					"stdout, stderr = process.communicate()"
+				],
+				"attachments": null,
+				"execution_count": 27
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"print(stdout)"
+				],
+				"attachments": null,
+				"execution_count": 28
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"print(stderr)"
+				],
+				"attachments": null,
+				"execution_count": 29
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"\"/mnt/bin/mount.sh mount -t cifs //ltianscusgen2.file.core.windows.net/gyytest /mnt/gyytest -o vers=3.0,username=ltianscusgen2,password=Ucfh1ECwlDcz9QRSY/ODB86JzE+u/z0ONo6sK0qjqEZ2/x1iyrPw3CVIuP3e+C8ZCbdZc+/pSvTYzqmxwtzZig==,serverino\".!!"
+				],
+				"attachments": null,
+				"execution_count": 63
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"import scala.sys.process._\r\n",
+					"val c = \"mount -t cifs //ltianscusgen2.file.core.windows.net/gyytest / -o vers=3.0,username=ltianscusgen2,password=Ucfh1ECwlDcz9QRSY/ODB86JzE+u/z0ONo6sK0qjqEZ2/x1iyrPw3CVIuP3e+C8ZCbdZc+/pSvTYzqmxwtzZig==,serverino\""
+				],
+				"attachments": null,
+				"execution_count": 46
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"Seq(\"/bin/bash\", \"-c\", s\"\"\"/mnt/bin/mount.sh ${c}\"\"\").!!"
+				],
+				"attachments": null,
+				"execution_count": 47
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"Seq(\"/bin/bash\", \"-c\", s\"\"\"/mnt/bin/mount.sh umount /mnt/gyytest2\"\"\").!!"
+				],
+				"attachments": null,
+				"execution_count": 40
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"print(mssparkutils.credentials.getToken(\"dw\", \"test\"))"
+				],
+				"attachments": null,
+				"execution_count": 11
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"mssparkutils.credentials.help()"
+				],
+				"attachments": null,
+				"execution_count": 12
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"mssparkutils.credentials.getConnectionStringOrCreds(\"AzureDataLakeStorage1118\")"
+				],
+				"attachments": null,
+				"execution_count": 5
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": true
+				},
+				"source": [
+					"mssparkutils.credentials.getConnectionStringOrCreds(\"AzureFileStorage1\")"
+				],
+				"attachments": null,
+				"execution_count": 6
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"import numpy as np\n",
+					"from matplotlib.patches import Circle, Wedge, Polygon\n",
+					"from matplotlib.collections import PatchCollection\n",
+					"import matplotlib.pyplot as plt\n",
+					"\n",
+					"# Fixing random state for reproducibility\n",
+					"np.random.seed(19680801)\n",
+					"\n",
+					"\n",
+					"fig, ax = plt.subplots()\n",
+					"\n",
+					"resolution = 50  # the number of vertices\n",
+					"N = 3\n",
+					"x = np.random.rand(N)\n",
+					"y = np.random.rand(N)\n",
+					"radii = 0.1*np.random.rand(N)\n",
+					"patches = []\n",
+					"for x1, y1, r in zip(x, y, radii):\n",
+					"    circle = Circle((x1, y1), r)\n",
+					"    patches.append(circle)\n",
+					"\n",
+					"x = np.random.rand(N)\n",
+					"y = np.random.rand(N)\n",
+					"radii = 0.1*np.random.rand(N)\n",
+					"theta1 = 360.0*np.random.rand(N)\n",
+					"theta2 = 360.0*np.random.rand(N)\n",
+					"for x1, y1, r, t1, t2 in zip(x, y, radii, theta1, theta2):\n",
+					"    wedge = Wedge((x1, y1), r, t1, t2)\n",
+					"    patches.append(wedge)\n",
+					"\n",
+					"# Some limiting conditions on Wedge\n",
+					"patches += [\n",
+					"    Wedge((.3, .7), .1, 0, 360),             # Full circle\n",
+					"    Wedge((.7, .8), .2, 0, 360, width=0.05),  # Full ring\n",
+					"    Wedge((.8, .3), .2, 0, 45),              # Full sector\n",
+					"    Wedge((.8, .3), .2, 45, 90, width=0.10),  # Ring sector\n",
+					"]\n",
+					"\n",
+					"for i in range(N):\n",
+					"    polygon = Polygon(np.random.rand(N, 2), True)\n",
+					"    patches.append(polygon)\n",
+					"\n",
+					"colors = 100*np.random.rand(len(patches))\n",
+					"p = PatchCollection(patches, alpha=0.4)\n",
+					"p.set_array(np.array(colors))\n",
+					"ax.add_collection(p)\n",
+					"fig.colorbar(p, ax=ax)\n",
+					"\n",
+					"plt.show()"
+				],
+				"attachments": null,
+				"execution_count": 1
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"from notebookutils import display, displayHTML, enableMatplotlib\n",
+					"from notebookutils import mssparkutils"
+				],
+				"attachments": null,
+				"execution_count": 34
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"import matplotlib\n",
+					"import matplotlib.pyplot as plt\n",
+					"from notebookutils.visualization.msInlinePlotlib import MsInLineBackend\n",
+					"if not matplotlib.__version__.startswith(\"3.3\") and (plt._show != MsInLineBackend.show):\n",
+					"    plt._show = MsInLineBackend.show\n",
+					"else:\n",
+					"    pass\n",
+					"plt.plot([1, 2, 3, 4])\n",
+					"plt.show()"
+				],
+				"attachments": null,
+				"execution_count": 33
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"displayHTML(\"hello world\")"
+				],
+				"attachments": null,
+				"execution_count": 32
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"display.config(\"\")\n",
+					"display(spark.range(1))\n",
+					"display.execute(\"\")"
+				],
+				"attachments": null,
+				"execution_count": 31
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"mssparkutils.fs.help()"
+				],
+				"attachments": null,
+				"execution_count": 30
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"TokenLibrary = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary"
+				],
+				"attachments": null,
+				"execution_count": 18
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark\n",
+					"import com.microsoft.spark.notebook.visualization.{ display, displayHTML }\n",
+					"import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary"
+				],
+				"attachments": null,
+				"execution_count": 14
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark\n",
+					"displayHTML(\"hello world\")"
+				],
+				"attachments": null,
+				"execution_count": 15
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark \n",
+					"display.config(\"\")\n",
+					"display(spark.range(1))\n",
+					"display.execute(\"\")"
+				],
+				"attachments": null,
+				"execution_count": 16
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark \n",
+					"mssparkutils.fs.help()"
+				],
+				"attachments": null,
+				"execution_count": 29
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark\n",
+					"import com.microsoft.spark.sqlanalytics.utils.Constants\n",
+					"import org.apache.spark.sql.SqlAnalyticsConnector._"
+				],
+				"attachments": null,
+				"execution_count": 28
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "csharp"
+					}
+				},
+				"source": [
+					"%%csharp\n",
+					"DisplayHTML(\"hello world\");"
+				],
+				"attachments": null,
+				"execution_count": 27
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "csharp"
+					}
+				},
+				"source": [
+					"%%csharp\n",
+					"DisplayConfig(\"\");\n",
+					"Display(spark.Range(1));\n",
+					"DisplayExecute(\"\");"
+				],
+				"attachments": null,
+				"execution_count": 26
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "csharp"
+					}
+				},
+				"source": [
+					"%%csharp\n",
+					"FS.Help();"
+				],
+				"attachments": null,
+				"execution_count": 25
 			}
 		]
 	}

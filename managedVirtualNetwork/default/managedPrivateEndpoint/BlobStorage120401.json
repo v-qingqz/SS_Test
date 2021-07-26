@@ -1,0 +1,10 @@
+{
+	"name": "BlobStorage120401",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3/resourceGroups/bigdataqa/providers/Microsoft.Storage/storageAccounts/meiblob",
+		"groupId": "blob",
+		"fqdns": [
+			"meiblob.blob.core.windows.net"
+		]
+	}
+}
