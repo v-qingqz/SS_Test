@@ -1,0 +1,22 @@
+{
+	"name": "Database_qingtest",
+	"properties": {
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Name": "Database_qingtest",
+		"EntityType": "DATABASE",
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://default@hozhao1128gen2.dfs.core.windows.net/Database_qingtest",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "AzureDataLakeStorage1131"
+			}
+		}
+	},
+	"type": "DATABASE"
+}

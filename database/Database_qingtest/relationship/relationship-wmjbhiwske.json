@@ -1,0 +1,23 @@
+{
+	"name": "relationship-wmjbhiwske",
+	"properties": {
+		"Namespace": {
+			"DatabaseName": "Database_qingtest"
+		},
+		"Name": "relationship-wmjbhiwske",
+		"EntityType": "RELATIONSHIP",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Table_2",
+		"ToTableName": "Table_1",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "Column_1",
+				"ToColumnName": "Column_2"
+			}
+		],
+		"RelationshipType": 0
+	},
+	"type": "RELATIONSHIP"
+}
