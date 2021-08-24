@@ -2,13 +2,13 @@
 	"name": "SQL script 2",
 	"properties": {
 		"content": {
-			"query": "create DATABASE GitDatabase",
+			"query": "CREATE TABLE [dbo].[person]\n(\n id int NOT NULL,\nname char(10) not null,\n age int not null\n)\nGO",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "master",
-				"poolName": "Built-in"
+				"databaseName": "sql",
+				"poolName": "sql"
 			},
 			"resultLimit": 5000
 		},
