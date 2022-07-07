@@ -4,41 +4,53 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "origin",
+			"referenceName": "SaprkPool",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
-			"driverMemory": "56g",
-			"driverCores": 8,
-			"executorMemory": "56g",
-			"executorCores": 8,
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
 			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "2"
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "4fc5d51f-3732-48c9-b93e-97ebf42b9dad"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
 			"language_info": {
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/8b3b8a60-1dd0-4824-8770-2ed6a55d8e27/resourceGroups/ltiantestRG/providers/Microsoft.Synapse/workspaces/ltianscusworkspace/bigDataPools/origin",
-				"name": "origin",
+				"id": "/subscriptions/051ddeca-1ed6-4d8b-ba6f-1ff561e5f3b3/resourceGroups/bigdataqa/providers/Microsoft.Synapse/workspaces/wcustest/bigDataPools/SaprkPool",
+				"name": "SaprkPool",
 				"type": "Spark",
-				"endpoint": "https://ltianscusworkspace.dev.azuresynapse-dogfood.net/livyApi/versions/2019-11-01-preview/sparkPools/origin",
+				"endpoint": "https://wcustest.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/SaprkPool",
 				"auth": {
 					"type": "AAD",
-					"authResource": "https://dev.azuresynapse.net"
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
 				},
-				"sparkVersion": "2.4",
-				"nodeCount": 3,
+				"sparkVersion": "3.2",
+				"nodeCount": 10,
 				"cores": 8,
 				"memory": 56,
 				"extraHeader": null
-			}
+			},
+			"sessionKeepAliveTimeout": 30
 		},
 		"cells": [
 			{
@@ -61,6 +73,11 @@
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175044992
+					}
+				},
 				"source": [
 					"# Line charts\n",
 					"\n",
@@ -80,10 +97,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 15
+				"execution_count": 33
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175045385
+					}
+				},
 				"source": [
 					"# Bar chart\n",
 					"\n",
@@ -109,10 +131,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 2
+				"execution_count": 34
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175048240
+					}
+				},
 				"source": [
 					"# Histogram\n",
 					"\n",
@@ -136,10 +163,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 3
+				"execution_count": 35
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175048477
+					}
+				},
 				"source": [
 					"# Scatter chart\n",
 					"\n",
@@ -162,10 +194,15 @@
 					""
 				],
 				"attachments": null,
-				"execution_count": 4
+				"execution_count": 36
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175049021
+					}
+				},
 				"source": [
 					"# Stack plots\n",
 					"\n",
@@ -187,10 +224,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 5
+				"execution_count": 37
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175049254
+					}
+				},
 				"source": [
 					"# Pie charts\n",
 					"\n",
@@ -210,10 +252,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 6
+				"execution_count": 38
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175049521
+					}
+				},
 				"source": [
 					"# fill_between and alpha\n",
 					"\n",
@@ -230,10 +277,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 7
+				"execution_count": 39
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175050107
+					}
+				},
 				"source": [
 					"# Subplotting using Subplot2grid\n",
 					"\n",
@@ -275,10 +327,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 8
+				"execution_count": 40
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175050726
+					}
+				},
 				"source": [
 					"# 3D Scatter Plots\n",
 					"\n",
@@ -309,10 +366,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 9
+				"execution_count": 41
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175051345
+					}
+				},
 				"source": [
 					"# 3D Bar Plots\n",
 					"\n",
@@ -340,10 +402,15 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 10
+				"execution_count": 42
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175051957
+					}
+				},
 				"source": [
 					"# Wireframe Plots\n",
 					"\n",
@@ -361,7 +428,7 @@
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 11
+				"execution_count": 43
 			},
 			{
 				"cell_type": "markdown",
@@ -373,6 +440,11 @@
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175052582
+					}
+				},
 				"source": [
 					"# Scatterplot with a nice regression line fit to it, all with just one call to Seaborn's regplot.\n",
 					"\n",
@@ -386,14 +458,19 @@
 					"x = 5 + np.arange(num_points) + np.random.randn(num_points)\n",
 					"# y will be 10, 11, 12... but twiddled even more randomly\n",
 					"y = 10 + np.arange(num_points) + 5 * np.random.randn(num_points)\n",
-					"sns.regplot(x, y)\n",
+					"sns.regplot(x=x, y=y)\n",
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 12
+				"execution_count": 44
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175053139
+					}
+				},
 				"source": [
 					"# Seanborn heatmap\n",
 					"\n",
@@ -408,11 +485,13 @@
 					"data += np.arange(side_length)\n",
 					"data += np.reshape(np.arange(side_length), (side_length, 1))\n",
 					"# Generate the heatmap\n",
-					"sns.heatmap(data)\n",
+					"fig = plt.figure()\n",
+					"ax = fig.add_subplot(111)\n",
+					"sns.heatmap(data, ax=ax)\n",
 					"plt.show()"
 				],
 				"attachments": null,
-				"execution_count": 13
+				"execution_count": 45
 			},
 			{
 				"cell_type": "markdown",
@@ -425,6 +504,11 @@
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175053459
+					}
+				},
 				"source": [
 					"import numpy as np\n",
 					"from bokeh.plotting import figure, show\n",
@@ -449,10 +533,15 @@
 					"displayHTML(html)"
 				],
 				"attachments": null,
-				"execution_count": null
+				"execution_count": 46
 			},
 			{
 				"cell_type": "code",
+				"metadata": {
+					"gather": {
+						"logged": 1657175053707
+					}
+				},
 				"source": [
 					"# Plotting glyphs over a map using bokeh.\n",
 					"\n",
@@ -484,7 +573,69 @@
 					"displayHTML(html)"
 				],
 				"attachments": null,
-				"execution_count": null
+				"execution_count": 47
+			},
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"## Plotly\r\n",
+					"You can render HTML or interactive libraries like **Plotly**, using the **displayHTML()**."
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"gather": {
+						"logged": 1657175063894
+					},
+					"collapsed": true
+				},
+				"source": [
+					"from urllib.request import urlopen\r\n",
+					"import json\r\n",
+					"with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:\r\n",
+					"    counties = json.load(response)\r\n",
+					"\r\n",
+					"import pandas as pd\r\n",
+					"df = pd.read_csv(\"https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv\",\r\n",
+					"                   dtype={\"fips\": str})\r\n",
+					"\r\n",
+					"import plotly\r\n",
+					"import plotly.express as px\r\n",
+					"\r\n",
+					"fig = px.choropleth(df, geojson=counties, locations='fips', color='unemp',\r\n",
+					"                           color_continuous_scale=\"Viridis\",\r\n",
+					"                           range_color=(0, 12),\r\n",
+					"                           scope=\"usa\",\r\n",
+					"                           labels={'unemp':'unemployment rate'}\r\n",
+					"                          )\r\n",
+					"fig.update_layout(margin={\"r\":0,\"t\":0,\"l\":0,\"b\":0})\r\n",
+					"\r\n",
+					"# create an html document that embeds the Plotly plot\r\n",
+					"h = plotly.offline.plot(fig, output_type='div')\r\n",
+					"\r\n",
+					"# display this html\r\n",
+					"displayHTML(h)"
+				],
+				"attachments": null,
+				"execution_count": 48
 			}
 		]
 	}
